@@ -34,15 +34,13 @@ public class Main {
 class Solution {
     int countZeroes(int[] arr, int n) {
         int counter=0;
-        Arrays.sort(arr);
+       // Arrays.sort(arr);
         for(int i=0;i<n;i++)
         {
             
             if(arr[i]==0){
             counter++;
-            }else if(arr[i]==1){
-                break;
-            }
+           }
             
         }
         return counter;
