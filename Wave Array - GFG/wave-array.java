@@ -63,12 +63,12 @@ class Solution {
         int j=0;
         for(int i=1;i<=n-1;i+=2)
         {
-            if(a[i]>=a[i-1])
-            {
-                int temp = a[i-1];
-                a[i-1]=a[i];
-                a[i]=temp;
-            }//&&  2<3  2 1 3    
+           if(a[i]>=a[i-1])
+           {
+               int temp=a[i];
+               a[i]=a[i-1];
+               a[i-1]=temp;
+           }// 2<1 &&  2<3  2 1 3    
         }
     }
 }
