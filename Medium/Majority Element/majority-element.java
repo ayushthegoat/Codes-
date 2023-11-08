@@ -33,20 +33,16 @@ class Solution
 {
     static int majorityElement(int a[], int size)
     {
-        Map<Integer,Integer> map=new LinkedHashMap<>();
-        
-        
-        for(int i:a)
+    Map<Integer,Integer>map=new LinkedHashMap<>();
+    for(int i:a){
+        map.put(i,map.getOrDefault(i,0)+1);
+    }
+    for(Map.Entry<Integer,Integer>entry:map.entrySet()){
+        if(entry.getValue()>(size/2))
         {
-            map.put(i,map.getOrDefault(i,0)+1);
+            return entry.getKey();
         }
-        for(Map.Entry<Integer,Integer> entry:map.entrySet())
-        {
-            if(entry.getValue()>(size/2))
-            {
-                return entry.getKey();
-            }
-        }
-        return -1;
+    }
+    return -1;
     }
 }
