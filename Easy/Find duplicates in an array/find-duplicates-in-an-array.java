@@ -29,12 +29,7 @@ class Solution {
          ArrayList<Integer> list=new ArrayList<>();
         for(Integer i :arr)
         {
-            if(map.containsKey(i))
-            {
-                map.put(i,map.get(i)+1);
-            }else{
-                map.put(i,1);
-            }
+           map.put(i,map.getOrDefault(i,0)+1);
         }
         for(Map.Entry<Integer,Integer> entry:map.entrySet()){
             if(entry.getValue()>1)
