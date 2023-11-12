@@ -32,18 +32,17 @@ public class GFG {
 
 class Solution {
     int remove_duplicate(int A[],int N){
-  Set<Integer>set =new LinkedHashSet<>();
-  for(int i=0;i<N;i++){
-      set.add(A[i]);}
-      Integer[] arr=set.toArray(new Integer[0]);
-      int index=0;
-      for(int i=0;i<arr.length;i++)
-      {
-          A[index]=arr[i];
-          index++;
-      }
-    
-      
-      return set.size();
+       int i=0;
+       int count=0;
+       for(int j=0;j<N;j++)
+       {
+           if(A[i]!=A[j])
+           {
+               A[i+1]=A[j];
+               i++;
+               
+           }
+       }
+       return i+1 ;
   }
 }
