@@ -13,8 +13,18 @@ class Solution
     public static void sort012(int a[], int n)
     {
         // code hereA
-        Arrays.sort(a);
-
+       ArrayList<Integer>list=new ArrayList<>(a.length);
+     for(int i:a){
+        list.add(i);
+     }
+       
+       Collections.sort(list,(o1,o2)->{
+           return Integer.compare(o1,o2);
+       });
+       int index=0;
+       for(int i:list){
+           a[index++]=i;
+       }
     }
 }
 
