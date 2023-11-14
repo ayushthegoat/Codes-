@@ -44,29 +44,23 @@ class Solution
     static ArrayList<Integer> sortByFreq(int arr[], int n)
     { ArrayList<Integer> lst=new ArrayList<>();
   
-    TreeMap<Integer,Integer> map=new TreeMap<>();
+         Map<Integer,Integer> map=new HashMap<>();
           for(int i:arr)
           {
               map.put(i,map.getOrDefault(i,0)+1);
+              lst.add(i);
           }
-          
-          int max=(Collections.max(map.values()));
-          while(max>0){
-           for (Map.Entry<Integer, Integer> entry : map.entrySet())
-          {
-              if(entry.getValue()==max){
-                  for(int i=0;i<max;i++)
-                  {
-                      lst.add(entry.getKey());
-                  }
-              }
-          }
-          max--;
+       
+        Collections.sort(lst,(a,b)->{
+            if(map.get(a)==map.get(b)){
+                return a-b;
+            }else{
+                return map.get(b)-map.get(a);
+            }
+        });
+         return lst;
               
-              
-          }
-          
-          
- return lst;         
+         
+
 }
 }
