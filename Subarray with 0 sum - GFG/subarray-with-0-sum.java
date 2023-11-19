@@ -45,16 +45,20 @@ class Solution{
     static boolean findsum(int arr[],int n)
     {
         //Your code here
-        
-       HashSet<Integer>set=new HashSet<>();
-       int sum=0;
-       for(int i=0;i<n;i++){
-           sum=sum+arr[i];
-           if(set.contains(sum)|| arr[i]==0 || sum==0){
-               return true;}
-               set.add(sum);
-           
-       }
-        return false;
+        int sum=0;
+     Map<Integer,Integer>map=new HashMap<>();
+         for(int i=0;
+         i<n;i++){
+             sum=sum+arr[i];
+         
+         if(sum==0){
+             return true;
+         }
+         if(map.containsKey(sum)){
+             return true;
+         }
+         map.put(sum,map.getOrDefault(sum,0)+1);
+         }
+         return false;
     }
 }
