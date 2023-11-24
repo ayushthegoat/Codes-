@@ -25,18 +25,14 @@ class Solution
     //Function to count nodes of a linked list.
     public static int getCount(Node head)
     {
-        
-       Node temp=head; 
-       int counter=1;
-       if(head==null){
-           return 0;
-       }
-       
-       while(temp.next!=null){
-           temp=temp.next;
-           counter++;
-       }
-       return counter;
+        int counter=0;
+        //Code here
+        Node temp=head;
+        while(temp!=null){
+            temp=temp.next;
+            counter++;
+        }
+        return counter;
     }
 }
     
