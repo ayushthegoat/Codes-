@@ -80,14 +80,16 @@ class GfG
 {
     boolean isCircular(Node head)
     {
-	   Node temp=head;
-	   while(temp!=null){
-	       if(head==temp.next){
-	           return true;
-	       }
-	         temp=temp.next;
-	   }
-	return false;
+	  Node temp=head;
+	  while(temp!=null){
+	      if(temp.next==head){
+	          return true;
+	      
+	          
+	      }
+	      temp=temp.next;
+	  }
+	  return false;
 	   
     }
 }
