@@ -86,35 +86,37 @@ class Solution {
     
     //Function to check whether two linked lists are identical or not.
     public boolean isIdentical (Node head1, Node head2){
-        Node templ1=head1 ;
-        Node templ2=head2;
+        //write your code here 
+        
+        Node t1=head1;
+        Node t2=head2;
         int counterl1=0;
         int counterl2=0;
-        while(templ1!=null){
-            templ1=templ1.next;
-            
+        while(t1!=null){
+            t1=t1.next;
             counterl1++;
         }
-         while(templ2!=null){
-            templ2=templ2.next;
+          while(t2!=null){
+            t2=t2.next;
             counterl2++;
         }
         if(counterl1!=counterl2){
             return false;
         }
-     templ1=head1;
-     templ2=head2;
-        while(templ1!=null && templ2!=null){
-            if(templ1.data!=templ2.data){
-                return false;
-                
+        
+        
+        
+        Node temp1=head1;
+        Node temp2=head2;
+        
+        while(temp1!=null && temp2!=null){
+            if(temp1.data != temp2.data){
+                  return false;
             }
-            templ1=templ1.next;
-            templ2=templ2.next;
-                    
+            temp1=temp1.next;
+            temp2=temp2.next;
+            
         }
-        
         return true;
-        
-}
+    }
 }
