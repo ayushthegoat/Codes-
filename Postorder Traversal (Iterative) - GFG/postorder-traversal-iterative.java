@@ -121,22 +121,19 @@ class Tree {
         Stack<Node>s2=new Stack<>();
         Node temp=null;
         s1.push(node);
-        while(s1.isEmpty()==false){
+         while(s1.isEmpty()==false){
             temp=s1.pop();
-            s2.add(temp);
-            if(temp.left!=null){
-                s1.push(temp.left);
-            }
-            
-              if(temp.right!=null){
-                s1.push(temp.right);
-            }
-            
-        }
-        while(s2.isEmpty()==false){
-        Node curr=s2.pop();
-            list.add(curr.data);
-        }
-        return list;
+             s2.add(temp);
+             
+             if(temp.left!=null)s1.push(temp.left);
+             if(temp.right!=null)s1.push(temp.right);
+             
+         }
+         while(s2.isEmpty()==false){
+             Node curr=s2.pop();
+             
+             list.add(curr.data);
+         }
+         return list;
     }
 }
