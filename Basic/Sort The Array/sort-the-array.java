@@ -35,8 +35,14 @@ class Solution
 { 
     int[] sortArr(int[] arr, int n) 
     { 
-        Arrays.sort(arr);
-       return arr;
+        // code here
+        ArrayList<Integer>list=new ArrayList<>();
+        for(int i:arr){
+            list.add(i);;
+            
+        }
+        Collections.sort(list,(a,b)->a-b);
+    int[] res=list.stream().mapToInt(Integer::intValue).toArray();
+    return res;
     }
- 
 } 
