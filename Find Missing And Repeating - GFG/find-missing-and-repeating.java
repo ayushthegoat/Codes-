@@ -32,7 +32,7 @@ class GFG {
 class Solve {
     int[] findTwoElement(int arr[], int n) {
       int[] goat=new int[n];
-      int[] ans=new int[n+2];
+      int[] ans=new int[n+20];
    for(int i=0;i<n;i++){
        ans[arr[i]]++;   
        
