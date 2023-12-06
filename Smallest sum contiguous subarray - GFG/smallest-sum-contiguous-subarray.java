@@ -36,16 +36,16 @@ class Solution
     static int smallestSumSubarray(int arr[], int size)
     {
         // your code here
-      
+        int i=0;
         int j=0;
         int min=Integer.MAX_VALUE;
         int sum=0;
-       for(int i=0;i<size;i++){
+        while(i<size){
               sum=sum+arr[i];
               
           min=Math.min(sum,min);
              if(sum>0){sum =0;}
-            
+             i++;
         }
         return min;
     }
