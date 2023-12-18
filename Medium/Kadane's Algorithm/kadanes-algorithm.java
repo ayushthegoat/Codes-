@@ -41,11 +41,9 @@ class Solution{
         // Your code here
         long cursum=0;
         long max=Integer.MIN_VALUE;
-        for(int i=0;i<n;i++){
-            cursum=cursum+arr[i];
-            if(cursum>max){
-                max=cursum;
-            }
+        for(int i=0;i<n;i++){            //i=0 i=1 i=2   i=3    i=4
+            cursum=cursum+arr[i];        //1   1+2  3+3   9-2   7+5
+             max=Math.max(max,cursum);
             if(cursum<0){
                 cursum=0;
             }
