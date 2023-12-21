@@ -32,25 +32,27 @@ class Solution
 {
     static int findSubArraySum(int Arr[], int N, int k)
     {
-        
-        
-  HashMap<Integer, Integer> table = new HashMap<>();
-        int cursum = 0, count = 0;
-
-        for (int i = 0; i < N; i++) {
-            cursum += Arr[i];
-
-            if (cursum == k) {
-                count++;
-            }
-
-            if (table.containsKey(cursum - k)) {
-                count += table.get(cursum - k);
-            }
-
-            table.put(cursum, table.getOrDefault(cursum, 0) + 1);
-        }
-
-        return count;
+        int cursum=0;
+        int j=0;
+        int counter=0;
+              
+              Map<Integer,Integer>map=new HashMap<>();
+              
+              for(int i=0;i<Arr.length;i++){
+                  cursum=cursum+Arr[i];
+                  
+                  if(cursum==k){
+                      counter++;
+                  }
+                  
+                  if(map.containsKey(cursum-k)){
+                      counter=counter+map.get(cursum-k);
+                  }
+                  map.put(cursum,map.getOrDefault(cursum,0)+1);
+                  
+                  
+              }
+              
+    return counter;
     }
 }
