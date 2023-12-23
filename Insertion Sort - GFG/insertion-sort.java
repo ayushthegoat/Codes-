@@ -49,19 +49,37 @@ class Solution
       int j=0;
       int temp=0;
       //code here
-      for(int i=1;i<n;i++){
-          temp=arr[i];            //storing and creaeting hole
-          j=i-1;                   //calculatin the length of while loop
-          while(j>=0 && arr[j]>temp){
-               arr[j+1]=arr[j];
+    //   for(int i=1;i<n;i++){
+    //       j=i-1;
+    //       temp=arr[i];
+           
+    //       while(j>=0){
+               
+    //           if(arr[j]>temp){
+    //               arr[j+1]=arr[j];
+    //           }else{
+    //               break;
+    //           }
+    //           j--;
+    //       }
+    //         arr[j+1]=temp;   
+           
+    //   }
+       for(int i=1;i<n;i++){
+           j=i-1;
+           temp=arr[i];
+           
+           while(j>=0){
+               if(arr[j]>temp){
+                   arr[j+1]=arr[j];
+               }else{
+                   break;
+               }
                j--;
-               
-               
-          }
-          arr[j+1]=temp;
-          
-          
+           }
+           arr[j+1]=temp;
+       }
+       
       }
       
   }
-}
