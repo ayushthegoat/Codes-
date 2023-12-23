@@ -35,21 +35,19 @@ class Solution
 {
 	int  select(int arr[], int i)
 	{
-        // code here such that selectionSort() sorts arr[]
-        return 0;
+       return 0; // code here such that selectionSort() sorts arr[]
 	}
 	
 	void selectionSort(int arr[], int n)
 	{
 	    //code here
-	    
 	    int min=0;
-	    for(int i=0;i<=n-2;i++){
+	    for(int i=0;i<arr.length-1;i++){
 	        min=i;
-	        for(int j=i;j<=n-1;j++){
-	           if(arr[j]<arr[min]){
-	               min=j;
-	           }
+	        for(int j=i+1;j<arr.length;j++){
+	            if(arr[j]<arr[min]){
+	                min=j;
+	            }
 	        }
 	        int temp=arr[min];
 	        arr[min]=arr[i];
