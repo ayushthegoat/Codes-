@@ -59,45 +59,39 @@ class Solution
 {
     void merge(int arr[], int l, int m, int r)
     {
-  ArrayList<Integer> list = new ArrayList<>();
-
-        int left = l;
-        int mid = m + 1;
-        int high = r;
-
-        while (left <= m && mid <= high) {
-            if (arr[left] < arr[mid]) {
-                list.add(arr[left]);
-                left++;
-            } else {
-                list.add(arr[mid]);
-                mid++;
-            }
-        }
-
-        while (left <= m) {
-            list.add(arr[left]);
-            left++;
-        }
-
-        while (mid <= high) {
-            list.add(arr[mid]);
-            mid++;
-        }
-
-        int idx = 0;
-        for (int i = l; i <= r; i++) {
-            arr[i] = list.get(idx);
-            idx++;
-        }
-        
+         // Your code here
+         int left=l;
+         int right=m+1;
+         ArrayList<Integer>list=new ArrayList<>();
+         
+         while(left<=m  && right<=r){
+             
+             if(arr[left]<arr[right])list.add(arr[left++]);
+             
+             else list.add(arr[right++]);
+         }
+         while(left<=m)list.add(arr[left++]);
+         
+         while(right<=r)list.add(arr[right++]);
+         
+         int idx=0;
+         
+         for(int i=l;i<=r;i++)arr[i]=list.get(idx++);
+         
+         
     }
-    void mergeSort(int arr[], int low, int high){
-      if (low < high) {
-            int mid = low + (high - low) / 2;
-            mergeSort(arr, low, mid);
-            mergeSort(arr, mid + 1, high);
-            merge(arr, low, mid, high);
+    void mergeSort(int arr[], int l, int r)
+    {
+        //code here
+        int m=l+(r-l)/2;
+        
+        if(l>=r){
+            return ;
         }
-}
+        mergeSort(arr,l,m);
+        
+        mergeSort(arr,m+1,r);
+        
+        merge(arr,l,m,r);
+    }
 }
