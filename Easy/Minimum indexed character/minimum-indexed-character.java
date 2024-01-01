@@ -2,45 +2,48 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
-
-// } Driver Code Ends
-//User function template for JAVA
-
-class Solution
+class GFG
 {
-    //Function to find the minimum indexed character.
-    public static int minIndexChar(String str, String patt)
+    public static void main(String[] args) throws IOException
     {
-        // Your code here
-        int index=-1;
-        for(int i=0;i<str.length();i++){
-            if(patt.contains(String.valueOf(str.charAt(i)))){
-                return i;
-            }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine().trim());
+        while(T-->0)
+        {
+            String str = br.readLine().trim();
+            String patt = br.readLine().trim();
+            Solution obj = new Solution();
+            System.out.println(obj.printMinIndexChar(str, patt));
         }
-        return index;
     }
 }
-
-//{ Driver Code Starts.
-
-class GFG {
-	public static void main (String[] args) 
-	{
-		Scanner sc=new Scanner(System.in);
-		int t=sc.nextInt();
-		while(t>0)
-		{
-		    t--;
-		    
-		    String s1=sc.next();
-		    String s2=sc.next();
-		    
-		    int res = new Solution().minIndexChar(s1, s2);
-		    System.out.println(res);
-		}
-	}
-}
-
 // } Driver Code Ends
+
+
+class Solution{
+    
+    // Function to find the character in patt which is present in str at min index
+    public static String printMinIndexChar(String S, String patt){
+        
+        // Your code here
+        
+        // you don't need to print anything
+         Map<Character,Integer>map=new HashMap<>();
+         
+         for(int i=0;i<patt.length();i++)
+         {
+             if(map.containsKey(patt.charAt(i))){
+                 map.put(patt.charAt(i),1);
+             }else{
+                 map.put(patt.charAt(i),map.getOrDefault(patt.charAt(i),0)+1);
+             }
+         }
+         for(int i=0;i<S.length();i++){
+             if(map.containsKey(S.charAt(i))){
+                 return String.valueOf(S.charAt(i));
+             }
+         }
+         return "$";
+    }
+    
+}
