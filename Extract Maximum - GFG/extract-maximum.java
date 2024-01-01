@@ -41,11 +41,10 @@ class Solution
                 sb.setLength(0);
             }
         }
-
-        if (sb.length() > 0) {
-            int nums = Integer.parseInt(sb.toString());
-            max = Math.max(max, nums);
-        }
+              if(sb.length()>0){
+                  int nums = Integer.parseInt(sb.toString());
+                max = Math.max(max, nums);
+              }
 
         return max;
     }    
