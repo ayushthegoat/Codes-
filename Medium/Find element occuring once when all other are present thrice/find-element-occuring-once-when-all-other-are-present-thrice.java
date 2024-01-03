@@ -27,30 +27,25 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 //User function Template for Java
 
 class Solution {
     static int singleElement(int[] arr , int N) {
         // code here
-         HashMap<Integer,Integer> map1=new HashMap<>();
-        
-       for (int i = 0; i < N; i++) {
-            map1.put(arr[i], map1.getOrDefault(arr[i], 0) + 1);
+     
+      
+      Map<Integer,Integer>map=new HashMap<>();
+      for (int i = 0; i < N; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
-
-         int lessFrequency=0;
-        for(int element:map1.keySet())
-        {
-            int val=map1.get(element);
-            
-            if(val<3)
-            {
-                lessFrequency=element;
-                break;
-            }
-        }
-        return lessFrequency;
-       
-        
+      for(int i:map.keySet()){
+          if(map.get(i)==1)
+          {
+              return i;
+          }
+      }
+       return -1;
     }
 }
