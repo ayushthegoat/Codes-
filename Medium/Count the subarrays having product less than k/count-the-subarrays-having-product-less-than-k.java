@@ -43,9 +43,8 @@ class Solution {
     
     public long countSubArrayProductLessThanK(long arr[], int n, long k)
     {
- int i=0,j=0;long count=0;
-        long product=1;
-
+        int i=0,j=0;
+        long product=1,count=0;
         while(i<n){
             product*=arr[i];
             while(product>=k && j<=i){
