@@ -117,7 +117,7 @@ class Node
 */
 /*  Function which returns the  root of 
     the flattened linked list. */
-    class NodeComparo implements 
+class NodeComparo implements 
     java.util.Comparator<Node>{
         @Override
         public int compare(Node a,Node b){
