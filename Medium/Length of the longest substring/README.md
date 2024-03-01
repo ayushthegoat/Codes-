@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/length-of-the-longest-substring3036/1">Length of the longest substring</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S</strong>, find the length of the longest substring without repeating characters. </span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/length-of-the-longest-substring3036/1?page=2&category=Strings&sortBy=submissions">Length of the longest substring</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S</strong>, find the length of the longest substring without repeating characters. </span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
