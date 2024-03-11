@@ -33,15 +33,21 @@ class Solution{
         // code here
         List<Integer>list=new ArrayList<>();
          int[] arr={2000,500,200,100,50,20,10,5,2,1};
-         int i=0;
-         while(i<arr.length){
-              if(N>=arr[i]){
-                  list.add(arr[i]);
-                  N=N-arr[i];
-              }else{
-                  i++;
-              }    
-         }
+       
+        Queue<Integer>q=new PriorityQueue<Integer>((a,b)->b-a);
+        for(int i:arr)q.offer(i);
+        int i=0;
+        while(!q.isEmpty()){
+            int curr=q.poll();
+            if(curr<=N){
+                list.add(curr);
+                N=N-curr;
+                if(curr<=N){
+                q.offer(curr);
+                }
+            
+           }
+        }
         
         return list;
     }
