@@ -6,7 +6,7 @@ class Solution {
             int j=0;
             while(i<n){
                 int count=1;
-                while(i+1<n && chars[i]==chars[i+1]){
+                while(i<n-1 && chars[i]==chars[i+1]){
                     i++;
                     count++;
                 }
