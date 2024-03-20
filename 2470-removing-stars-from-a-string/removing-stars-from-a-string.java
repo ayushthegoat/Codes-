@@ -5,7 +5,7 @@ class Solution {
         if(s.charAt(i)=='*'){
             res.deleteCharAt(res.length()-1);
         }else{
-            res.append(String.valueOf(s.charAt(i)));
+            res.append(s.charAt(i));
         }
        }
        return res.toString();
