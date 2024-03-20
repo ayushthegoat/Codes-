@@ -17,11 +17,11 @@ class Solution {
      maxVowels=curr;
 
     for(int i=k;i<s.length();i++){
-        char chA=s.charAt(i);
-        char chR=s.charAt(i-k);
-        if(vowels[chR-'a']==1)curr--;
+        char chAdded=s.charAt(i);
+        char chRemoved=s.charAt(i-k);
+        if(vowels[chRemoved-'a']==1)curr--;
 
-        if(vowels[chA-'a']==1)curr++;
+        if(vowels[chAdded-'a']==1)curr++;
 
         maxVowels=Math.max(maxVowels,curr);
     }
