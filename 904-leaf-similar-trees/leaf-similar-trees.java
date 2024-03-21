@@ -20,14 +20,7 @@ class Solution {
         ArrayList<Integer> t2 = new ArrayList<>();
         fillLists(root1,t1);
         fillLists(root2,t2);
-        int j=0;
-        if(t1.size()!=t2.size())return false;
-        for(int i:t1){
-            if(i!=t2.get(j++)){
-                return false;
-            }
-        }
-        return true;
+        return t1.equals(t2);
     }
     public void fillLists(TreeNode root,ArrayList<Integer>list){
         if(root==null){
