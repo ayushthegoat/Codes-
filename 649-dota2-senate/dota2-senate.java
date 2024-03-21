@@ -15,9 +15,9 @@ class Solution {
             int j=qforD.poll();
 
             if(i<j){
-                qforR.offer(i+senate.length());
+                qforR.offer(i+10000);
             }else{
-                qforD.offer(j+senate.length());
+                qforD.offer(j+10000);
             }
           
         }
