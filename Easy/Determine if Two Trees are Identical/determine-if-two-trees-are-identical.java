@@ -143,14 +143,7 @@ class Solution
 	    if(root1.data!=root2.data){
 	        return false;
 	    }
-	    if(isIdentical(root1.left,root2.left)==false){
-	        return false;
-	    }
-	    if(isIdentical(root1.right,root2.right)==false){
-	        return false;
-	    }
-	     
-        return true;
+	     return root1.data==root2.data && isIdentical(root1.left,root2.left) && isIdentical(root1.right,root2.right);
 	}
 	
 }
