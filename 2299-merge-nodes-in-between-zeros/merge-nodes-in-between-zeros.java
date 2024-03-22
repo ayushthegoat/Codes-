@@ -13,7 +13,7 @@ class Solution {
         ListNode temp=head;
         ListNode dummy=new ListNode();
         ListNode runner=dummy;
-        temp=head;
+        temp=head.next;
         int sum=0;
              while(temp!=null){
                 if(temp.val==0){
@@ -25,7 +25,7 @@ class Solution {
                 }
                 temp=temp.next;
              }
-             return dummy.next.next;
+             return dummy.next;
 
     }
 }
