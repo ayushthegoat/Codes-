@@ -5,9 +5,7 @@ class Solution {
          int sum=0;
          for(int i=0;i<nums.length;i++){
             sum=sum+nums[i];
-            if(sum>totsum){
-                totsum=sum;
-            }
+           totsum=sum>totsum?sum:totsum;
             if(sum<0){
                 sum=0;
             }
