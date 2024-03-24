@@ -1,7 +1,7 @@
 class Solution {
     public int maxOperations(int[] nums, int k) {
         int count=0;
-        Map<Integer , Integer> map = new HashMap<>();
+        Map<Integer , Integer> map = new HashMap();
         for(int i=0;i<nums.length;i++){
             int temp=k-nums[i];
             if(map.containsKey(temp)){
