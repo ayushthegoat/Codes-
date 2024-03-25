@@ -3,8 +3,10 @@ class Solution {
         String ans=strs[0];
         for(int i=1;i<strs.length;i++){
             String x=compare(ans,strs[i]);
-            if(x.equals(""))return "";
-            ans=x;
+           if(x.equals("")){
+            return "";
+           }
+           ans=x;
         }
         return ans;
 
@@ -12,13 +14,18 @@ class Solution {
 } 
     public String compare(String a,String b){
         int i = 0;
+        int cutter=0;
     while (i < a.length() && i < b.length()) {
         if (a.charAt(i) != b.charAt(i)) {
-            break; 
+             break;
+        }else{
+            cutter++;
+            i++;
+        
         }
-        i++;
+    
     }
-    return a.substring(0, i);
+    return a.substring(0, cutter);
     }
     
 }
