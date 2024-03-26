@@ -10,9 +10,9 @@ class Solution {
                     i++;
                 }
             }
-           // System.out.print(Arrays.toString(nums));
+         System.out.print(Arrays.toString(nums));
             return nums[nums.length-1];
-
+            
         
     }
      public static void swap(int i,int j,int[] nums){
