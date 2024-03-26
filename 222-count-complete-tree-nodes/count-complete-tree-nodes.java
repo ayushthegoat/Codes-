@@ -15,21 +15,12 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-           Queue<TreeNode> q = new ArrayDeque();
+         
            if(root==null)return 0;
            if(root.left==null && root.right==null)return 1;
 
-           int ctr=0;
-           q.offer(root);
-           while(!q.isEmpty()){
-              TreeNode temp=q.poll();
-              ctr++;
-
-              if(temp.left!=null) q.offer(temp.left);
-
-              if(temp.right!=null) q.offer(temp.right);
-
-           }
-           return ctr;
+           int cLeft = countNodes(root.left);
+           int cRight = countNodes(root.right);
+           return cLeft + cRight + 1;
     }
 }
