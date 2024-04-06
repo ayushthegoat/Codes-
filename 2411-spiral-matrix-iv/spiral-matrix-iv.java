@@ -13,9 +13,6 @@ class Solution {
         int[][] arr = new int[m][n];
         ListNode temp = head;
 
-        for (int[] a : arr) {
-            Arrays.fill(a, -1);
-        }
         int rowBeg = 0;
         int rowEnd = arr.length - 1;
         int colBeg = 0;
