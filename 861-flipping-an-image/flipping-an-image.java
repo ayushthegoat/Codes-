@@ -13,6 +13,7 @@ class Solution {
                 }
             }
          }
+         System.gc();
          return image;
 
     }
