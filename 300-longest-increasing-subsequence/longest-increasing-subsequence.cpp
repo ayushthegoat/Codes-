@@ -14,12 +14,6 @@ public:
                 }
             }
         }
-        int max = 0;
-        for(int i=0;i<memo.size();i++){
-            if(memo[i]>memo[max]){
-                max= i;
-            }
-        }
-        return memo[max]+1;
+       return *max_element(memo.begin(),memo.end()) +1;
     }
 };
