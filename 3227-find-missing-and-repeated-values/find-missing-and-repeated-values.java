@@ -8,6 +8,7 @@ class Solution {
                 hash[grid[i][j]]++;
             }
         }
+        System.gc();
         return solve(hash);
 
     }
