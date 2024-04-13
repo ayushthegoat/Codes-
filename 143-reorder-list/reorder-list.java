@@ -12,19 +12,35 @@ class Solution {
     public void reorderList(ListNode head) {
         if (head == null || head.next == null)
             return;
-        
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode runner = dummy;
+        ListNode temp = head;
         ListNode mid = findMid(head);
         ListNode rev = reverseNode(mid.next);
         mid.next = null;
 
-        while (head != null && rev != null) {
-            ListNode temp = head.next;
-            ListNode revNext = rev.next;
-            head.next = rev;
-            rev.next = temp;
-            head = temp;
-            rev = revNext;
+        // while (head != null && rev != null) {
+        // ListNode temp = head.next;
+        // ListNode revNext = rev.next;
+        // head.next = rev;
+        // rev.next = temp;
+        // head = temp;
+        // rev = revNext;
+        // }
+        while (temp != null || rev != null) {
+            if (temp != null) {
+                runner.next = temp;
+                runner = runner.next;
+                temp = temp.next;
+            }
+            if (rev != null) {
+                runner.next = rev;
+                runner = runner.next;
+                rev = rev.next;
+            }
         }
+
     }
 
     public ListNode reverseNode(ListNode node) {
