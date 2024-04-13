@@ -41,6 +41,7 @@ class Solution {
 
         runner.next = null;
         ListNode result = reverseNode(dummy.next);
+      //  System.gc();
         return result;
 
     }
