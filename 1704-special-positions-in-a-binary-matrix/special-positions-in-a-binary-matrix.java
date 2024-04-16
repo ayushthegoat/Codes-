@@ -5,9 +5,9 @@ class Solution {
         int res=0;
 
         boolean[] rowZero = new boolean[mat.length];
-        Arrays.fill(rowZero,false);
+     //   Arrays.fill(rowZero,false);
         boolean[] colZero = new boolean [mat[0].length];
-        Arrays.fill(colZero,false);
+       // Arrays.fill(colZero,false);
 
         for(int i=0;i<row;i++){
             int count = 0;
