@@ -15,7 +15,7 @@ public:
             
             dp[i] = max(steal,skip);
         }
-        
+        for(int i=0;i<dp.size();i++)cout<<dp[i]<<" ";
         return dp[n];
     }
 };
