@@ -11,8 +11,8 @@ public:
                 map[i-j].push_back(mat[i][j]);
             }
         }
-        for(auto &it:map){
-            sort(it.second.begin() ,it.second.end());
+        for(auto &iterator:map){
+            sort(iterator.second.begin() ,iterator.second.end());
         }
         
         for(int i=row-1;i>=0;i--){
