@@ -2,12 +2,14 @@ class Solution {
 public:
     string makeGood(string s) {
         stack<char> stk;
-        for (char ch : s) {
-            if (!stk.empty() && abs(stk.top() - ch) == 32) {
-                stk.pop(); // Remove the previous character
-            } else {
-                stk.push(ch); // Add the current character
-            }
+        for (int i=0;i<s.size();i++) {
+           if(stk.empty()){
+            stk.push(s[i]);
+           }else if(!stk.empty() && abs(stk.top()-s[i])==32){
+            stk.pop();
+           }else{
+           stk.push(s[i]);
+           }
         }
         string st = "";
         while (!stk.empty()) {
