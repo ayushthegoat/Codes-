@@ -4,6 +4,7 @@ public:
         int row = grid.size();
         int col = grid[0].size();
 
+        int loopCounter = 0;
         int mx = 0;
         for(int i=1;i+1<row;i++){
             for(int j=1;j+1<col;j++){
@@ -15,11 +16,12 @@ public:
                 sum+=grid[i+1][j];
                 sum+=grid[i+1][j-1];
                 sum+=grid[i+1][j+1];
-
+                loopCounter++;
                 mx = max(mx,sum);
             }
             
         }
+        cout<<loopCounter;
         return mx;
     }
 };
