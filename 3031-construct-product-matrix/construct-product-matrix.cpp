@@ -6,7 +6,7 @@ public:
         int mod = 12345;
 
         long long product = 1;
-        vector<vector<int>> gridRes(row, vector<int>(col));
+     
          vector<vector<int>> hash1(row, vector<int>(col));
         vector<vector<int>> hash2(row, vector<int>(col));
 
@@ -29,9 +29,9 @@ public:
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 long long mul = (hash1[i][j] * hash2[i][j]);
-                gridRes[i][j] = mul%mod;
+                grid[i][j] = mul%mod;
             }
         }
-        return gridRes;
+        return grid;
     }
 };
