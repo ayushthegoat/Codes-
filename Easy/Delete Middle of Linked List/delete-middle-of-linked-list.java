@@ -46,6 +46,8 @@ class GFG{
 // } Driver Code Ends
 
 
+
+
 /*
 class Node {
     int data;
@@ -58,6 +60,7 @@ class Solution {
     Node deleteMid(Node head) {
         // This is method only submission.
         // You only need to complete the method.
+        if(head.next==null)return null;
         Node fast=head;
         Node slow=head;
         Node prevSlow=null;
@@ -67,7 +70,9 @@ class Solution {
             slow=slow.next;
             fast=fast.next.next;
         }
+        if(prevSlow!=null){
         prevSlow.next=slow.next;
+        }
         return head;
     }
 }
