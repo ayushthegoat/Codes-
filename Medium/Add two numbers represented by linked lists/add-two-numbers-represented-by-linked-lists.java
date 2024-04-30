@@ -117,6 +117,7 @@ class Solution{
              }
              
          }
+         
          if(res==null || res.next==null)return new Node(0);
          return res;
         
