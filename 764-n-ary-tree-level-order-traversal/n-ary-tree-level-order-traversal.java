@@ -35,7 +35,9 @@ class Solution {
                 Node temper = q.poll();
                 store.add(temper.val);
                 if (temper.children != null) {
-                    q.addAll(temper.children);
+                    for(Node n : temper.children){
+                        q.offer(n);
+                    }
                 }
 
             }
