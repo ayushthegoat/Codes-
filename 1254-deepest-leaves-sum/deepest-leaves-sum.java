@@ -18,7 +18,7 @@ class Solution {
         if (root == null)
             return 0;
         int height = findDepth(root);
-        return findSum(root, height, 1);
+        return findSum(root, 0, height, 1);
 
     }
 
@@ -31,16 +31,16 @@ class Solution {
         return Math.max(lh, rh) + 1;
     }
 
-    private int findSum(TreeNode root, int height, int currheight) {
+    private int findSum(TreeNode root, int sum, int height, int currheight) {
         if (root == null)
             return 0;
 
         if (height == currheight) {
-            return root.val;
+            return sum + root.val;
         }
 
-        int leftSum = findSum(root.left, height, currheight + 1);
-        int rightSum = findSum(root.right, height, currheight + 1);
+        int leftSum = findSum(root.left, sum, height, currheight + 1);
+        int rightSum = findSum(root.right, sum, height, currheight + 1);
 
         return leftSum + rightSum;
     }
