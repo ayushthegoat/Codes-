@@ -115,13 +115,15 @@ class Solution
         map<int,map<int,vector<int>>>mp;
         solve(root,0,0,mp);
         vector<int>res;
-        for(auto &it : mp){
-            for(auto &it2 : it.second){
-                for(auto &it3 : it2.second){
-                    res.push_back(it3);
-                }
+             for(auto i : mp)
+        {
+            for(auto j : i.second)
+            {
+                for(auto val : j.second)
+                res.push_back(val);
             }
         }
+        
         return res;
     }
 };
