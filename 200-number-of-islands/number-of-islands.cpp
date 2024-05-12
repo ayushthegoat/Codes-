@@ -11,10 +11,9 @@ class Solution {
             q.pop();
             
             static const vector<pair<int, int>> directions = {
-            {-1, 0}, // Up
-            {1, 0},  // Down
-            {0, -1}, // Left
-            {0, 1}   // Right
+                    {-1,0},
+             {0,-1},       {0,+1},
+                    {+1,0}       
         };
 
             for (const auto& dir : directions) {
