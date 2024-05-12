@@ -5,36 +5,46 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 private:
-//     void solve(int row,int col,vector<vector<int>>& answer,vector<vector<int>>& answer,int initial,int newColor
-//     ,vector<int>delcol,vector<int>delcol){
-//         answer[row][col] = newColor;
-//         for(int i=0;i<4;i++){
-//             int nrow = row+delcol[i];
-//             int ncol = col+delcol[i];
-//             if(nrow>=0 && nrow<row && ncol>=0 && ncol<col && image[nrow][ncol]==initial && answer[nrow][ncol]!=newColor){
-//                 solve(nrow,ncol,answer,image,initial,newColor,delrow,delcol);
-//             }
-//         }
-// }
- void solve(int row, int col, vector<vector<int>>& answer, const vector<vector<int>>& image, int initial, int newColor, const vector<int>& delrow, const vector<int>& delcol) {
-        answer[row][col] = newColor;
-        for (int i = 0; i < 4; i++) {
-            int nrow = row + delrow[i];
-            int ncol = col + delcol[i];
-            if (nrow >= 0 && nrow < image.size() && ncol >= 0 && ncol < image[0].size() && image[nrow][ncol] == initial && answer[nrow][ncol] != newColor) {
-                solve(nrow, ncol, answer, image, initial, newColor, delrow, delcol);
+   void dfs(int sr,int sc, vector<vector<int>>&res, vector<vector<int>>&image,int newColor,int initial){
+       static const vector<pair<int, int>> directions = {
+                    {-1,0},
+             {0,-1},       {0,+1},
+                    {+1,0}       
+        };
+        
+        res[sr][sc] = newColor;
+        
+        queue<pair<int,int>>q;
+        q.push({sr, sc});
+        
+        while(!q.empty()){
+            int row = q.front().first;
+            int col = q.front().second;
+            q.pop();
+            
+            
+            for(const auto& dir: directions){
+                int nrow = row + dir.first;
+                int ncol = col + dir.second;
+                if(nrow>=0 && nrow<image.size() && ncol>=0 && ncol<image[0].size() &&
+                image[nrow][ncol] == initial && res[nrow][ncol] !=newColor){
+                    
+                    res[nrow][ncol] = newColor;
+                    q.push({nrow, ncol});
+                }
             }
         }
-    }
+        
+   }
 public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
         // Code here 
-        vector<vector<int>>answer = image;
-        vector<int>delrow = {-1,0,1,0};
-        vector<int>delcol = {0,1,0,-1};
-        int initial = image[sr][sc];
-        solve(sr,sc,answer,image,initial,newColor,delrow,delcol);
-        return answer;
+     vector<vector<int>>res = image;
+     int initial = image[sr][sc];
+     
+     dfs(sr,sc,res,image,newColor,initial);
+     
+     return res;
     }
 };
 
