@@ -53,10 +53,8 @@ public:
 
             crawler = crawler->children[idx];
         }
-        if (i == prefix.size())
-            return true;
-        
-        return false;
+    
+        return true;
     }
 };
 
