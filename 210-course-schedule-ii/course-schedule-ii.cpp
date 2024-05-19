@@ -11,8 +11,8 @@ public:
 
         vector<int>indegree(n,0);
         for(int i=0;i<n;i++){
-            for(int j=0;j<adj[i].size();j++){
-                indegree[adj[i][j]]++;
+            for(int it : adj[i]){
+                indegree[it]++;
             }
         }
 
