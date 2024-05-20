@@ -1,29 +1,26 @@
 class Solution {
     public String longestPrefix(String s) {
-        char[] str = s.toCharArray();
-        int n = str.length;
-        int len = 0;
-        int max = 0;
-        int[] LP = new int[n];
+        char[] pat = s.toCharArray();
+        int[] LPS = new int[pat.length];
+         int len = 0; // length of previous longest prefix and suffix
+    LPS[0] = 0;  // LPS[0] is always 0
         int i = 1;
 
-        while(i<n){
-            if(str[i] == str[len]){
+        while (i < LPS.length) {
+            if (pat[i] == pat[len]) {
                 len++;
-                LP[i] = len;
+                LPS[i] = len;
                 i++;
-            }else {
-                if(len!=0){
-                    len = LP[len-1];
-
-                }else{
-                    LP[i] = 0;
+            } else {
+                if (len != 0) {
+                    len = LPS[len - 1];
+                } else {
+                    LPS[i] = 0;
                     i++;
-                    
                 }
             }
         }
-        for(int num : LP)max = Math.max(num, max);
-        return s.substring(0,LP[n-1]);
+        for(int num : LPS)System.out.println(num+" ");
+        return s.substring(0,LPS[pat.length-1]);
     }
 }
