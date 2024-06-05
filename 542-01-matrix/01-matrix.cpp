@@ -17,8 +17,9 @@ public:
             }
         }
 
-        int drow[] = {-1,0,+1,0};
-	    int dcol[] = {0,+1,0,-1};
+        const vector<pair<int,int>> directions = {
+            {1,0},{0,1},{-1,0},{0,-1}
+        };
 
         while(!q.empty()){
             int row = q.front().first.first;
@@ -28,9 +29,9 @@ public:
 
             dist[row][col] = steps;
 
-            for(int i = 0; i < 4 ; i++){
-                int nrow = row + drow[i];
-                int ncol = col + dcol[i];
+            for(const auto &dir : directions){
+                int nrow = row + dir.first;
+                int ncol = col + dir.second;
 
                 if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && mat[nrow][ncol] == 1 && !vis[nrow][ncol]){
                     vis[nrow][ncol] = 1;
