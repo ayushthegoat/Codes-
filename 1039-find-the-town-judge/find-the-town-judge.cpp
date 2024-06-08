@@ -7,11 +7,9 @@ public:
         vector<int> trusters(N + 1, 0);
 
         for (auto it : trust) {
-            int v = it[0];
-            int u = it[1];
 
-            trustees[v]++;
-            trusters[u]++;
+            trustees[it[0]]++;
+            trusters[it[1]]++;
         }
 
         for (int i = 1; i <= N; i++) {
