@@ -10,7 +10,6 @@ public:
                 
         while(!stk.empty() && stk.top().first <= price){
             auto it = stk.top();
-            int currPrice = it.first;
             int currSpan = it.second;
             span+= currSpan;
             stk.pop();
