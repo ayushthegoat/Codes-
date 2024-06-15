@@ -2,40 +2,31 @@ public class Solution {
 
    private List<string> result = new List<string>();
 
-    private bool IsValid(string str) {
-        int count = 0;
-
-        foreach (char ch in str) {
-            if (ch == '(')
-                count++;
-            else
-                count--;
-            if (count < 0)
-                return false;
-        }
-        return count == 0;
-    }
-
-    private void Solve(string curr, int n) {
+    private void Solve(string curr, int n, int open, int close) {
         if (curr.Length == 2 * n) {
-            if (IsValid(curr)) {
-                result.Add(curr);
-            }
+            result.Add(curr);
             return;
         }
 
+        if(open < n) {
         curr += '(';
-        Solve(curr, n);
+        Solve(curr, n, open+1, close);
         curr = curr.Substring(0, curr.Length - 1);
+        }
 
+        if(close < open) {
         curr += ')';
-        Solve(curr, n);
+        Solve(curr, n, open, close+1);
         curr = curr.Substring(0, curr.Length - 1);
+        }
+
     }
 
     public IList<string> GenerateParenthesis(int n) {
         result.Clear();
-        Solve("", n);
+        int open = 0;
+        int close = 0;
+        Solve("", n, open, close);
         return result;
     }
 }
