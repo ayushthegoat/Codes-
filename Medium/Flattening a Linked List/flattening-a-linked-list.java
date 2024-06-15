@@ -117,35 +117,45 @@ class Node
 */
 /*  Function which returns the  root of 
     the flattened linked list. */
-class NodeComparo implements 
-    java.util.Comparator<Node>{
-        @Override
-        public int compare(Node a,Node b){
-            return Integer.compare(a.data,b.data);
-        }
-    }
 class GfG
-{
+{   
+    public Node mergeLists(Node temp1, Node temp2){
+        if(temp1 == null)return temp2;
+        if(temp2 == null)return temp1;
+        
+        Node dummy = new Node(-1);
+        Node runner = dummy;
+        
+        while(temp1!=null && temp2!=null) {
+            if(temp1.data < temp2.data) {
+                runner.bottom = temp1;
+                temp1 = temp1.bottom;
+            }else {
+                runner.bottom = temp2;
+                temp2 = temp2.bottom;
+            }
+            runner = runner.bottom;
+       
+          }
+             
+            if(temp1!=null) {
+                runner.bottom = temp1;
+            }
+            
+            if(temp2!=null) {
+                runner.bottom = temp2;
+            }
+        
+        return dummy.bottom;
+    }
     Node flatten(Node root)
     {
-         Node starter=new Node(0);
-         Node runner=starter;
-         PriorityQueue<Node>q=new PriorityQueue<>(new NodeComparo());
-         Node temp=root;
-         while(temp!=null){
-             q.add(temp);
-             temp=temp.next;
-         }
-         while(!q.isEmpty()){
-             Node temp2=q.poll();
-             if(temp2.bottom!=null){
-                 q.add(temp2.bottom);
-             }
-             runner.bottom=temp2;
-             temp2.next=null;
-             runner=temp2;
-         }
-         return starter.bottom;
-     
+	// Your code here
+	     if(root == null)return null;
+	     
+	     Node root2 = flatten(root.next);
+	     
+	     Node result = mergeLists(root, root2);
+	     return result;
     }
 }
