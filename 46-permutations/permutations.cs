@@ -10,7 +10,12 @@ private void Swap(ref int a, ref int b) {
         result.Add(new List<int>(nums));
         return;
     }
+    HashSet<int>set = new HashSet<int>();
     for(int i=index; i<n; i++) {
+        if(set.Contains(nums[i])) {
+            continue;
+        }
+        set.Add(nums[index]);
         Swap(ref nums[index], ref nums[i]);
         solve(result, n, index + 1, nums); // Increment index
         Swap(ref nums[index], ref nums[i]);
