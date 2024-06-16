@@ -6,7 +6,7 @@ private void Swap(ref int a, ref int b) {
     b = temp;
 }
    private void solve(List<IList<int>> result, int n, int index, int[] nums) {
-     if (index >= n) {
+     if (index == n-1) {
         result.Add(new List<int>(nums));
         return;
     }
