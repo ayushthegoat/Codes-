@@ -2,7 +2,7 @@ public class Solution {
      private int m, n;
     private int emptyCells;
     private int result = 0;
-    private List<int[]> directions = new List<int[]> { new int[] { 1, 0 }, new int[] { -1, 0 }, new int[] { 0, 1 }, new int[] { 0, -1 } };
+    private List<(int, int)> directions = new List<(int, int)> { (1, 0), (-1, 0), (0, 1), (0, -1) };
     
     private void Dfs(int[][] grid, int currCount, int i, int j) {
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == -1) {
@@ -17,9 +17,9 @@ public class Solution {
         }
         
         grid[i][j] = -1;
-        foreach (int[] dir in directions) {
-            int i_ = i + dir[0];
-            int j_ = j + dir[1];
+        foreach ((int dirRow, int dirCol) in directions) {
+            int i_ = i + dirRow;
+            int j_ = j + dirCol;
             Dfs(grid, currCount + 1, i_, j_);
         }
         grid[i][j] = 0;
