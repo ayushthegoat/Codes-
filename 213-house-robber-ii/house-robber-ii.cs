@@ -3,16 +3,25 @@ public class Solution {
     
     private int Solve(int[] nums, int i, int n)
     {
-        if (i > n)
-            return 0;
+       
+
+            int prev = 0; 
+            int prevPrev = 0;
         
-        if (t[i] != -1)
-            return t[i];
+        // int take = nums[i] + Solve(nums, i + 2, n); // Steals ith house and moves to i+2 (because we can't steal adjacent)
+        // int skip = Solve(nums, i + 1, n); // Skips this house, now we can move to adjacent next house
+
+        for(int index=i;index<=n;index++) {
+            int skip = prev;
+            int take = nums[index] + prevPrev;
+
+            t[i] = Math.Max(take, skip);
+
+            prevPrev = prev;
+            prev = t[i]; 
+        }
         
-        int take = nums[i] + Solve(nums, i + 2, n); // Steals ith house and moves to i+2 (because we can't steal adjacent)
-        int skip = Solve(nums, i + 1, n); // Skips this house, now we can move to adjacent next house
-        
-        return t[i] = Math.Max(take, skip);
+        return t[i];
     }
     
     public int Rob(int[] nums)
