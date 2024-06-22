@@ -2,20 +2,24 @@ class Solution {
 public:
     int rob(vector<int>& arr) {
         int n = arr.size();
-         vector<int> dp(n+1 , 0);
-        //int[i = max stolen money till that house;
+        if (n == 0) return 0;
+        if (n == 1) return arr[0];
+        if (n == 2) return max(arr[0], arr[1]);
+
+        int prev = max(arr[0], arr[1]);
+        int prevPrev = arr[0];
+        int mx = prev;
         
-        dp[0]=0;
-        dp[1]=arr[0];
-        
-        
-        for(int i=2;i<=n;i++){
-            int steal = arr[i-1] + dp[i-2];
-            int skip = dp[i-1];
+        for(int i=2;i<n;i++){
+            int steal = arr[i] + prevPrev;
+            int skip = prev;
             
-            dp[i] = max(steal,skip);
+            mx = max(steal,skip);
+
+            prevPrev = prev;
+            prev = mx;
         }
-        for(int i=0;i<dp.size();i++)cout<<dp[i]<<" ";
-        return dp[n];
+    
+        return mx;
     }
 };
