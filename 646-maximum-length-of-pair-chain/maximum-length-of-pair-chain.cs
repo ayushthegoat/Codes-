@@ -1,22 +1,39 @@
 public class Solution {
+    private int n;
+    private int[,] memo;
+    private int Solve(int[][] nums, int index, int prev) {
+        if(index >= n) {
+            return 0;
+        }
+
+        int memoIndex = prev + 1;
+        if (memo[index, memoIndex] != -1) {
+            return memo[index, memoIndex];
+        }
+
+        int take = 0;
+        if(prev == -1 || nums[index][0] > nums[prev][1]) {
+            take = 1 + Solve(nums, index + 1, index);
+        }
+        int skip = Solve(nums, index+1, prev);
+        
+        memo[index, memoIndex] = Math.Max(take, skip);
+        
+        return memo[index, memoIndex];
+
+
+    }
     public int FindLongestChain(int[][] nums) {
-        int n = nums.Length;
-        Array.Sort(nums, (a,b)=>a[1].CompareTo(b[1]));
+        Array.Sort(nums, (a, b) => a[1].CompareTo(b[1]));
 
-        int[] dp = new int[n];
-         for(int i=0;i<n;i++){
-              dp[i] = 1;
-           }
+        n = nums.Length;
+        memo = new int[n, n+1];
 
-        int max = 1;
-        for(int i=1;i<n;i++) {
-            for(int j=0;j<i;j++) {
-                if(nums[j][1] < nums[i][0]) {
-                    dp[i] = Math.Max(dp[i], dp[j] + 1);
-                    max = Math.Max(dp[i], max);
-                }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n+1;j++){
+                memo[i, j] = -1;
             }
         }
-        return max;
+        return Solve(nums, 0, -1);
     }
 }
