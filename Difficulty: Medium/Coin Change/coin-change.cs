@@ -51,31 +51,26 @@ class Solution
         {
             //Your code here
             memo = new long[N + 1, sum + 1];
-            for (int i = 0; i <memo.GetLength(0); i++) {
-            for (int j = 0; j <memo.GetLength(1); j++) {
-                memo[i, j] = -1;
+            
+              for (int i = 0; i <= N; i++) {
+            memo[i, 0] = 1;
+        }
+
+            for (int i = 1; i <N+1; i++) {
+            for (int j = 1; j <sum+1; j++) {
+                
+                if(j - coins[i-1] >= 0) {
+                    long take = memo[i, j - coins[i-1]];
+                    long notTake = memo[i - 1, j];
+                    
+                    memo[i, j] = take + notTake;
+                } else {
+                    memo[i, j] = memo[i - 1, j];
+                }
             }
         }
             
-            return Solve(coins, N, sum, 0);
+            return memo[N, sum];
         }
-        private long Solve(int[] coins, int N, int sum, int index) {
-            if(sum == 0) {
-                return 1;
-            }
-            if(sum < 0 || index >= N) {
-                return 0;
-            }
-            
-            if( memo[index, sum] != -1) {
-                return memo[index, sum];
-            }
-            
-            long take = Solve(coins, N, sum - coins[index], index);
-            
-            long notTake = Solve(coins, N, sum, index + 1);
-            
-            return memo[index, sum] = take + notTake;
-            
-        }
+       
     }
