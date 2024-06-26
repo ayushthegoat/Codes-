@@ -21,24 +21,22 @@ public class Solution {
 
         while(q.Count > 0) {
             int size = q.Count;
-            List<int> temp = new List<int>();
-            for(int i=0;i<size;i++) {
-                var node = q.Dequeue();
-                temp.Add(node.val);
+            int prevValue = oddLevel ? int.MaxValue : int.MinValue; // Initialize prevValue depending on the level
 
-                if(node.left != null) q.Enqueue(node.left);
-                if(node.right != null) q.Enqueue(node.right);
+        for (int i = 0; i < size; i++) {
+            var node = q.Dequeue();
+            int val = node.val;
+
+            if (oddLevel) { // Odd-indexed level
+                if (val % 2 != 0 || val >= prevValue) return false; // Must be even and strictly decreasing
+            } else { // Even-indexed level
+                if (val % 2 == 0 || val <= prevValue) return false; // Must be odd and strictly increasing
             }
-            if (!oddLevel) { // Even-indexed level
-            if (temp[0] % 2 == 0) return false; // The first element must be odd
-            for (int i = 1; i < temp.Count; i++) {
-                if (temp[i] % 2 == 0 || temp[i] <= temp[i - 1]) return false; // Odd and strictly increasing
-            }
-        } else { // Odd-indexed level
-            if (temp[0] % 2 != 0) return false; // The first element must be even
-            for (int i = 1; i < temp.Count; i++) {
-                if (temp[i] % 2 != 0 || temp[i] >= temp[i - 1]) return false; // Even and strictly decreasing
-            }
+
+            prevValue = val;
+
+            if (node.left != null) q.Enqueue(node.left);
+            if (node.right != null) q.Enqueue(node.right);
         }
             oddLevel = !oddLevel;
         }
