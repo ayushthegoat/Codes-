@@ -21,9 +21,9 @@ public class Solution {
         int leftMax = Math.Max(0, Solve(root.left));
         int rightMax = Math.Max(0, Solve(root.right));
 
+        int temp = Math.Max(leftMax, rightMax) + root.val;
         max = Math.Max(max, leftMax + rightMax + root.val);
-
-        return root.val + Math.Max(leftMax, rightMax);
+        return temp;
     }
 
     public int MaxPathSum(TreeNode root) {
