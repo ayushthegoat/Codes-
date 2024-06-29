@@ -1,20 +1,26 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        unordered_map<int,int>mp;
-        
-        for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
+         
+        long long xo = 0;
+        for(auto num : nums) {
+            xo = (xo ^ num);
         }
 
-        vector<int>res;
-        for(auto it : mp){
-            int nums = it.first;
-            int count = it.second;
-            if(count == 1){
-                res.push_back(nums);
+        long long rsb = xo & -xo;
+        int first = 0;
+        int second = 0;
+
+        for(auto num : nums) {
+            if((rsb & num) == 0) {
+                first = first ^ num;
+            } else {
+                second = second ^ num;
             }
         }
-        return res;
+        if(first > second) {
+            return {second, first};
+        }
+        return {first, second};
     }
 };
