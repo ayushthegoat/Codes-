@@ -1,7 +1,12 @@
 class Solution {
 public:
     vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+
         int n = arr.size();
+
         vector<int> xo(n);
 
         xo[0] = arr[0];
