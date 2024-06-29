@@ -1,7 +1,9 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-         
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
         long long xo = 0;
         for(auto num : nums) {
             xo = (xo ^ num);
@@ -25,9 +27,3 @@ public:
     }
 };
 
-auto init = []() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    return 'c';
-}();
