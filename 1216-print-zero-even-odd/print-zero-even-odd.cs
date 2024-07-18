@@ -14,11 +14,11 @@ public class ZeroEvenOdd {
         for(int i = 1; i <= n; i++){
             zero.WaitOne();
             printNumber(0);
-            if((i&1) != 0){
-                odd.Release();
+            if((i&1) == 0){
+              even.Release();
             }
             else{
-                even.Release();
+               odd.Release();
             }
         }
     }
