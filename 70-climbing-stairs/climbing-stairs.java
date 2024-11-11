@@ -11,7 +11,7 @@ class Solution {
         for(int i = 3; i <= n; i++) {
             t[i] = t[i - 1] + t[i - 2];
         }
-
+        System.gc();
         return t[n];
     }
 }
