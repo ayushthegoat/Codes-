@@ -1,27 +1,30 @@
+using System;
+using System.Collections.Generic;
+
 public class ProductOfNumbers {
     private List<int> products;
+
     public ProductOfNumbers() {
-        products = new List<int>();
+        products = new List<int> { 1 }; // Initialize with 1 to simplify product calculations
     }
     
     public void Add(int num) {
-        if(num == 0) {
-            products.Clear();            
+        if (num == 0) {
+            products.Clear();
+            products.Add(1); // Reset with 1 to maintain multiplication logic
         } else {
-            products.Add(num * (products.Count == 0 ? 1 : products[products.Count - 1]));
+            products.Add(products[^1] * num); // Use `^1` for the last element
         }
     }
     
     public int GetProduct(int k) {
         int n = products.Count;
-        if (n == 0 || k > n) return 0;
-        if (k == n) return products[n - 1];
-        return products[n - 1] / products[n - k - 1];
+        return k >= n ? 0 : products[^1] / products[^(k + 1)];
     }
 }
 
 /**
- * Your ProductOfNumbers object will be instantiated and called as such:
+ * Example usage:
  * ProductOfNumbers obj = new ProductOfNumbers();
  * obj.Add(num);
  * int param_2 = obj.GetProduct(k);
