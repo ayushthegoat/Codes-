@@ -9,11 +9,6 @@ public class Solution {
         return true;
     }
     private bool parityChecker(int num1, int num2) {
-        if(num1 % 2 == 0 && num2 % 2 == 0) {
-            return true;
-        }else if(num1 % 2 != 0 && num2 % 2 != 0) {
-            return true;
-        }
-        return false;
+       return (num1 & 1) == (num2 & 1);      
     }
 }
